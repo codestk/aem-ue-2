@@ -39,7 +39,6 @@
 
     /* nav height */
     --nav-height: 64px;
-    background-color: red;
 }
 
 :root {
@@ -53,6 +52,7 @@
     --text-color: #3b63fb;
     --link-color: #3b63fb;
     --link-hover-color: #1d3ecf;
+    background-color: red;
 }
 
 /* fallback fonts */
