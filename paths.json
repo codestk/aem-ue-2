@@ -1,6 +1,7 @@
 {
   "mappings": [
     "/content/wknd-xwalk/:/",
+    "/content/wknd-xwalk/redirect:/redirect.json",
     "/content/wknd-xwalk/configuration:/.helix/config.json",
     "/content/wknd-xwalk/metadata/:metadata.json"
   ],
