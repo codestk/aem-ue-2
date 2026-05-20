@@ -25,14 +25,14 @@
  :root {
   --border-radius: 8px;
 --spacing-md: 16px;
---shadow-default: 0 4px 10px rgba(0,0,0,0.1);
-  /* colors */
-  --primary-color: rgb(255, 234, 3);       /* สีหลักของ WKND */
-  --secondary-color: rgb(32, 32, 32);      /* สีรองของแบรนด์ */
-  --background-color: white;               /* สีพื้นหลัง */
-  --light-color: rgb(235, 235, 235);       /* สีพื้นหลังอ่อน */
-  --dark-color: var(--secondary-color);    /* สีข้อความเข้ม */
+--shadow-default: 0 4px 10px rgb(0 0 0 / 10%);
 
+  /* colors */
+  --primary-color: rgb(255 234 3);       /* สีหลักของ WKND */
+  --secondary-color: rgb(32 32 32);      /* สีรองของแบรนด์ */
+  --background-color: white;               /* สีพื้นหลัง */
+  --light-color: rgb(235 235 235);       /* สีพื้นหลังอ่อน */
+  --dark-color: var(--secondary-color);    /* สีข้อความเข้ม */
   --text-color: var(--secondary-color);    /* สีข้อความหลัก */
   --link-color: var(--text-color);         /* สีลิงก์ */
   --link-hover-color: black;               /* สีลิงก์ตอน hover */
@@ -48,9 +48,9 @@
   padding: 0;
   margin: 0;
   width: 280px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 8%);
   overflow: hidden;
   border: 1px solid #e5e7eb;
 }
