@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
     /* colors */
     --background-color: white;
     --light-color: #f8f8f8;
@@ -52,6 +52,7 @@
     --text-color: #3b63fb;
     --link-color: #3b63fb;
     --link-hover-color: #1d3ecf;
+    background-color: red;
 }
 
 /* fallback fonts */
@@ -87,7 +88,7 @@
 body {
     display: none;
     margin: 0;
-    background-color: var(--background-color);
+
     color: var(--text-color);
     font-family: var(--body-font-family);
     font-size: var(--body-font-size-m);
