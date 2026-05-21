@@ -28,7 +28,7 @@
             transform: scale(1); 
             transition: transform 0.6s ease-in-out;
 
-            &.zoom {
+            .zoom {
                 transform: scale(1.1);
             }            
         }
@@ -46,10 +46,7 @@
         max-width: 1200px;
   
         .title {
-            font-family: var(--heading-font-family);
             font-size: var(--heading-font-size-xl);
-            font-weight: 600;
-            line-height: 1.25;
             margin: 0;
         }
 
