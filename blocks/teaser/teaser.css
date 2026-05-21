@@ -128,7 +128,6 @@
         }
 
         .content {
-            width: 40%;
             all: initial;
             flex: 1;
             background-color: var(--light-color);
@@ -144,6 +143,10 @@
                 border-width: 0;
                 padding-left: 0;
                 text-align: left;
+            }
+
+            * {
+                height: 50%;
             }
         }
 
