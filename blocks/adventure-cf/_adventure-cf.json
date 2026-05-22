@@ -1,7 +1,7 @@
 {
     "definitions": [
         {
-            "title": "Adventure Content Fragment",
+            "title": "Adventure CF",
             "id": "adventure-cf",
             "plugins": {
                 "xwalk": {
