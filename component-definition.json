@@ -83,7 +83,7 @@
       "id": "blocks",
       "components": [
         {
-          "title": "Adventure CF",
+          "title": "Adventure Content Fragment",
           "id": "adventure-cf",
           "plugins": {
             "xwalk": {
