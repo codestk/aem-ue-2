@@ -4,7 +4,10 @@
  */
 
 // eslint-disable-next-line import/no-unresolved
-import { getAEMHost, getAdventureByPath } from '../../scripts/aem-gql-connection.js';
+import {
+  getAEMHost,
+  getAdventureByPath,
+} from "../../scripts/aem-gql-connection.js";
 
 /**
  * Show error state
@@ -17,7 +20,8 @@ function showError(block, message) {
  * Show empty/no selection state
  */
 function showEmpty(block) {
-  const emptyMessage = 'No content fragment selected. Use the Universal Editor to select a content fragment.';
+  const emptyMessage =
+    "No content fragment selected. Use the Universal Editor to select a content fragment.";
   block.innerHTML = `<div class="content-fragment-empty">${emptyMessage}</div>`;
 }
 
@@ -25,14 +29,14 @@ function showEmpty(block) {
 // Converts camelCase to spaced words with first letter capitalized
 // e.g., "tripLength" becomes "Trip Length"
 function formatLabel(key) {
-  return key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+  return key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, " $1");
 }
 
-function createDisplay(contentfragment) {
-  const { keys } = contentfragment; // String version of keys in adventureByPath query
-  const { data } = contentfragment;
+function createDisplay(contentFragment) {
+  const { keys } = contentFragment; // String version of keys in adventureByPath query
+  const { data } = contentFragment;
 
-  let innerHTML = '';
+  let innerHTML = "";
   // eslint-disable-next-line no-underscore-dangle
   const cfPath = data._path;
 
@@ -42,8 +46,7 @@ function createDisplay(contentfragment) {
   //    Tells the Universal Editor this is a reference item
   // data-aue-label
   //    Title of the phantom reference item under the block in the Universal Editor Content Tree
-  innerHTML
-  += `<div class="headless-wrapper">
+  innerHTML += `<div class="headless-wrapper">
     <div class="content-fragment-detail"
         data-aue-resource="urn:aemconnection:${cfPath}/jcr:content/data/master" 
         data-aue-type="reference" 
@@ -56,8 +59,7 @@ function createDisplay(contentfragment) {
   //    Tells the Universal Editor what type of form field the data is
   // data-aue-prop
   //    Tells the Universal Editor what property to save back to the content fragment
-  innerHTML
-        += `<div class="content-fragment-hero">
+  innerHTML += `<div class="content-fragment-hero">
             <div class="content-fragment-image">
                 <picture>
                     <source srcset="${getAEMHost()}${cfPrimaryImagePath}?width=1200&format=webply&optimize=medium" type="image/webp">
@@ -70,7 +72,13 @@ function createDisplay(contentfragment) {
         </div>
         <div class="content-fragment-content">
             <div class="content-fragment-details-grid">`;
-  const details = [keys.activity, keys.difficulty, keys.tripLength, keys.groupSize, keys.price];
+  const details = [
+    keys.activity,
+    keys.difficulty,
+    keys.tripLength,
+    keys.groupSize,
+    keys.price,
+  ];
   details.forEach((detail) => {
     if (data[detail]) {
       innerHTML += `<div class="content-fragment-detail-item">
@@ -79,8 +87,7 @@ function createDisplay(contentfragment) {
                     </div>`;
     }
   });
-  innerHTML
-        += `</div>
+  innerHTML += `</div>
             <div class="content-fragment-${keys.description}">
                   <h2>About This Adventure</h2>
                   <div class="content-fragment-${keys.description}-content" data-aue-type="richtext" data-aue-prop="${keys.description}">
@@ -104,7 +111,7 @@ function createDisplay(contentfragment) {
  */
 export default async function decorate(block) {
   // Get the content fragment path from the UE generated content in the DOM
-  const cfPath = block.querySelector('a')?.textContent;
+  const cfPath = block.querySelector("a")?.textContent;
   if (!cfPath) {
     showEmpty(block);
     return;
@@ -116,7 +123,7 @@ export default async function decorate(block) {
     const contentFragment = await getAdventureByPath(cfPath);
 
     if (!contentFragment) {
-      showError(block, 'Content fragment not found');
+      showError(block, "Content fragment not found");
       return;
     }
 
@@ -131,7 +138,7 @@ export default async function decorate(block) {
     block.innerHTML = createDisplay(contentFragment);
   } catch (error) {
     // eslint-disable-next-line no-console
-    console.error('Content Fragment block error:', error);
-    showError(block, 'Failed to load content fragment');
+    console.error("Content Fragment block error:", error);
+    showError(block, "Failed to load content fragment");
   }
 }
