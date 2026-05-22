@@ -142,8 +142,3 @@ export default async function decorate(block) {
     showError(block, "Failed to load content fragment");
   }
 }
-
-// eslint-disable-next-line no-console
-// eslint-disable-next-line no-console
-// eslint-disable-next-line no-console
-// eslint-disable-next-line no-console
